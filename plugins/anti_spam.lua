@@ -4,7 +4,7 @@ kicktable = {}
 
 do
 
-local TIME_CHECK = 2 -- seconds
+local TIME_CHECK = 1 -- seconds
 local data = load_data(_config.moderation.data)
 -- Save stats, ban user
 local function pre_process(msg)
@@ -106,10 +106,10 @@ local function pre_process(msg)
           end
           local name = user_print_name(msg.from)
           --Send this to that chat
-          send_large_msg("chat#id"..msg.to.id, "User [ "..name.." ]"..msg.from.id.." Globally banned (spamming)")
+          send_large_msg("chat#id"..msg.to.id, "کاربر [ "..name.." ]"..msg.from.id.." به دلیل اسپم از تمام گروه های من بن شد")
           local log_group = 1 --set log group caht id
           --send it to log group
-          send_large_msg("chat#id"..log_group, "User [ "..name.." ] ( @"..username.." )"..msg.from.id.." Globally banned from ( "..msg.to.print_name.." ) [ "..msg.to.id.." ] (spamming)")
+          send_large_msg("chat#id"..log_group, "کاربر [ "..name.." ] ( @"..username.." )"..msg.from.id.." از تمام گروه های من  بن شد از طرف  ( "..msg.to.print_name.." ) [ "..msg.to.id.." ] به دلیل اسپم دادن")
         end
       end
       kicktable[user] = true
